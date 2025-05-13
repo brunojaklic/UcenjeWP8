@@ -1,27 +1,33 @@
-﻿--create database muzej;
---use muzej;
+﻿use master;
+go
+drop database if exists muzej;
+go
+create database muzej;
+go
+use muzej;
 
---create table kostosi(
---sifra int,
---ime varchar(20),
---prezime varchar(20)
---);
+create table kustosi(
+sifra int not null primary key identity(1,1),
+ime varchar(20) not null,
+prezime varchar(20) not null
+);
 
---create table djela(
---sifra int,
---naziv int
---);
+create table sponzori(
+sifra int not null primary key identity(1,1),
+naziv int not null
+);
 
---create table sponzori(
---sifra int,
---naziv int
---);
+create table izlozbe(
+sifra int not null primary key identity(1,1),
+naziv varchar(50) not null,
+starost int,
+kustos int references kustosi(sifra),
+sponzor int references sponzori(sifra)
+);
 
---create table izlozbe(
---sifra int,
---naziv varchar(50),
---starost int,
---kustos int,
---sponzor int
---);
+create table djela(
+sifra int not null primary key identity(1,1),
+naziv int not null,
+izlozba int not null references izlozbe(sifra)
+);
 
