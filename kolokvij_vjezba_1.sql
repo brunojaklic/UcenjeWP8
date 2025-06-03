@@ -249,11 +249,6 @@ on e.sifra = f.muskarac
 where d.hlace like '%a' and c.haljina like '%be%'
 order by e.hlace desc;
 
-select b.haljina, b.maraka
-from sestra_svekar a left join sestra b
-on a.sestra = b.sifra
-where a.sestra is null;
-
 select a.haljina, a.maraka
 from sestra a left join sestra_svekar b
 on a.sifra = b.sestra
