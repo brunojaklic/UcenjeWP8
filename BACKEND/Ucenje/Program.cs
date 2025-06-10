@@ -8,8 +8,13 @@ using Ucenje;
 //E02Z1.Izvedi();
 //E03Operatori.Izvedi();
 //E04UvjetnoGrananjeIf.Izvedi();
-E05UvjetoGrananjeSwitch.Izvedi();
-
+//E05UvjetoGrananjeSwitch.Izvedi();
+//E06Nizovi.Izvedi();
+//E06Zad1.Izvedi();
+//E07ForPetlja.Izvedi();
+//E08WhilePetlja.Izvedi();
+//E09DoWhile.Izvedi();
+E10ForEach.Izvedi();
 
 
 
