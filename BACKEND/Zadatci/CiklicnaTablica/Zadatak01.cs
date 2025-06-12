@@ -14,13 +14,14 @@ namespace CiklicnaTablica
             Console.Write("Unesite broj redova: ");
             int m = int.Parse(Console.ReadLine());
 
-            Console.Write("Unesite duljinu stupaca: ");
+            Console.Write("Unesite broj stupaca: ");
             int n = int.Parse(Console.ReadLine());
 
             int[,] matrica = new int[m, n];
 
             int broj = 1;
             int x = 0;
+
 
             while (broj <= m * n)
             {
@@ -29,9 +30,19 @@ namespace CiklicnaTablica
                     matrica[m - 1 - x, j] = broj++;
                 }
 
+                if(broj > m * n)
+                {
+                    break;
+                }
+
                 for (int i = m - 2 - x; i >= (0 + x); i--)
                 {
                     matrica[i, x] = broj++;
+                }
+
+                if (broj > m * n)
+                {
+                    break;
                 }
 
                 for (int j = 1 + x; j <= (n - 1 - x); j++)
@@ -39,10 +50,21 @@ namespace CiklicnaTablica
                     matrica[x, j] = broj++;
                 }
 
+                if (broj > m * n)
+                {
+                    break;
+                }
+
                 for (int i = 1 + x; i <= (m - 2 - x); i++)
                 {
                     matrica[i, n - 1 - x] = broj++;
                 }
+
+                if (broj > m * n)
+                {
+                    break;
+                }
+
                 x++;
             }
 
