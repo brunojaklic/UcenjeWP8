@@ -11,11 +11,24 @@ namespace CiklicnaTablica
 
         public static void Izvedi()
         {
+
+
+            int m, n;
+
             Console.Write("Unesite broj redova: ");
-            int m = int.Parse(Console.ReadLine());
+            do
+            {
+                m = int.Parse(Console.ReadLine());
+            } while (m <= 0);
+            
 
             Console.Write("Unesite broj stupaca: ");
-            int n = int.Parse(Console.ReadLine());
+            do
+            {
+                n = int.Parse(Console.ReadLine());
+
+            } while (n <= 0);
+            
 
             int[,] matrica = new int[m, n];
 
