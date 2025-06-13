@@ -54,6 +54,7 @@ namespace Ucenje
                 }
             }
 
+            // Napiši program koji ispisuje zbroj dvaju brojeva
             Console.WriteLine(ucitajCijeliBroj("Unesi 1. broj") + ucitajCijeliBroj("Unesi 2. broj"));
 
         } // kraj metode Izvedi
@@ -139,7 +140,7 @@ namespace Ucenje
             }
         }
 
-        // Napiši program koji ispisuje zbroj dvaju brojeva
+ 
 
 
 
