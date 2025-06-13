@@ -38,7 +38,7 @@ namespace CiklicnaTablica
 
             while (broj <= m * n)
             {
-                for (int j = n - 1 - x; j >= (0 + x); j--)
+                for (int j = n - 1 - x; j >= x; j--)
                 {
                     matrica[m - 1 - x, j] = broj++;
                 }
@@ -48,7 +48,7 @@ namespace CiklicnaTablica
                     break;
                 }
 
-                for (int i = m - 2 - x; i >= (0 + x); i--)
+                for (int i = m - 2 - x; i >= x; i--)
                 {
                     matrica[i, x] = broj++;
                 }
