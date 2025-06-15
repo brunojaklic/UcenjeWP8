@@ -12,36 +12,36 @@ namespace LjubavniKalkulator
             string prvaOsoba;
             string drugaOsoba;
 
-            
+
             Console.Write("Unesi ime prve osobe: ");
             prvaOsoba = Console.ReadLine();
 
             Console.Write("Unesi ime druge osobe: ");
             drugaOsoba = Console.ReadLine();
 
-            int[] prviBrojac = new int[prvaOsoba.Length];
-            int[] drugiBrojac = new int[drugaOsoba.Length];
+            char[] imena = new char[prvaOsoba.Length + drugaOsoba.Length + 1];
 
-
-
-
-
-
-
-
-        }
-
-
-        public static int Kalkulator(string prvaOsoba, string drugaOsoba, int prviBrojac, int drugiBrojac)
-        {
-
-
-            if (i == 0)
+            for(int i = 0; i < prvaOsoba.Length; i++)
             {
-                return 0;
+                imena[i] = prvaOsoba[i];
             }
 
-            return Kalkulator
+            imena[prvaOsoba.Length] ='/';
+
+            for(int i = prvaOsoba.Length + 1; i < imena.Length; i++)
+            {
+                imena[i] = drugaOsoba[i - prvaOsoba.Length];
+            }
+
+
+            
+
+            Console.WriteLine(imena);
+
+
+
+
+
 
 
 
@@ -49,10 +49,5 @@ namespace LjubavniKalkulator
 
 
         }
-     
-
-        }
-
-
     }
 }
