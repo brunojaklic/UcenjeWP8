@@ -19,34 +19,41 @@ namespace LjubavniKalkulator
             Console.Write("Unesi ime druge osobe: ");
             drugaOsoba = Console.ReadLine();
 
-            char[] imena = new char[prvaOsoba.Length + drugaOsoba.Length + 1];
+            char[] imena = new char[prvaOsoba.Length + drugaOsoba.Length];
 
             for(int i = 0; i < prvaOsoba.Length; i++)
             {
                 imena[i] = prvaOsoba[i];
             }
 
-            imena[prvaOsoba.Length] ='/';
-
-            for(int i = prvaOsoba.Length + 1; i < imena.Length; i++)
+            for(int i = 0; i < drugaOsoba.Length; i++)
             {
-                imena[i] = drugaOsoba[i - prvaOsoba.Length];
+                imena[prvaOsoba.Length + i] = drugaOsoba[i];
             }
 
+            int[] brojac = new int[imena.Length];
 
-            
+            for(int i = 0; i < imena.Length; i++)
+            {
+                int lokalniBrojac = 0;
+                for (int j = 0; j < imena.Length; j++)
+                {
+                    if (imena[j] == imena[i])
+                    {
+                        lokalniBrojac++;
+                    }
+                }
+                brojac[i] = lokalniBrojac;
+            }
 
-            Console.WriteLine(imena);
+            string spojeniString = "";
 
+            for (int i = 0; i < brojac.Length; i++)
+            {
+                spojeniString = spojeniString + brojac[i].ToString();
+            }
 
-
-
-
-
-
-
-
-
+            Console.WriteLine(spojeniString);
 
         }
     }
