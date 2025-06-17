@@ -4,7 +4,9 @@
 using Ucenje;
 
 // ključna riječ new poziva konstruktor klase
-new Ucenje.E14KlasaObjekt.Program();
+//new Ucenje.E14KlasaObjekt.Program();
+
+Ucenje.E14KlasaObjekt.Program.AutomobilZadatak();
 
 //E01UlazIzlaz.Izvedi();
 //E02Varijable.Izvedi();
