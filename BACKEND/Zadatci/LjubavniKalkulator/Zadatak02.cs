@@ -9,9 +9,26 @@
 
             char[] Imena = SpojiZnakove(PrvaOsoba, DrugaOsoba);
             int[] Brojac = IzracunajPonavljanja(Imena);
-            string SpojeniString = PretvoriBrojeveUZnakove(Brojac);
+            char[] SpojeniChar = PretvoriBrojeveUZnakove(Brojac);
 
-            Console.WriteLine(SpojeniString);
+            string PrazanString = "";
+
+            char[] FinalniChar = LjubavniKalkulator(SpojeniChar);
+
+
+            Console.WriteLine("{0}\t{1}", PrvaOsoba, DrugaOsoba);
+            for (int i = 0; i < (PrvaOsoba.Length + DrugaOsoba.Length); i++)
+            {
+                if (i == (PrvaOsoba.Length))
+                {
+                    Console.Write("\t");
+                }
+                Console.Write("{0}", SpojeniChar[i]);
+
+            }
+            Console.WriteLine((int)FinalniChar[0]);
+
+
         }
 
         public static string UcitajString(string Poruka)
@@ -66,16 +83,37 @@
             return Brojac;
         }
 
-        public static string PretvoriBrojeveUZnakove(int[] Brojac)
+        public static char[] PretvoriBrojeveUZnakove(int[] brojevi)
         {
-            string Rezultat = "";
+            string spojeni = string.Join("", brojevi);
+            return spojeni.ToCharArray();
+        }
 
-            for (int i = 0; i < Brojac.Length; i++)
+
+
+        public static char[] LjubavniKalkulator(char[] SpojeniChar)
+        {
+
+            int Brojac = 0;
+
+            if (SpojeniChar[0] <= 100)
             {
-                Rezultat += Brojac[i].ToString();
+                return SpojeniChar;
             }
 
-            return Rezultat;
+            for(int i = 0; i < SpojeniChar.Length; i++)
+            {
+                SpojeniChar[i] = (char)(SpojeniChar[0 + i] + SpojeniChar[SpojeniChar.Length - 1 - i]);
+                Brojac++;
+            }
+
+            for(int i = Brojac; i < SpojeniChar.Length; i++)
+            {
+                SpojeniChar[i] = '0';
+            }
+
+            return LjubavniKalkulator(SpojeniChar);
         }
+
     }
 }
