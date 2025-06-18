@@ -1,60 +1,81 @@
-﻿
-namespace LjubavniKalkulator
+﻿namespace LjubavniKalkulator
 {
     internal class Zadatak02
     {
-
-
-
         public static void Izvedi()
         {
+            string PrvaOsoba = UcitajString("Unesi ime prve osobe");
+            string DrugaOsoba = UcitajString("Unesi ime druge osobe");
 
-            string prvaOsoba;
-            string drugaOsoba;
+            char[] Imena = SpojiZnakove(PrvaOsoba, DrugaOsoba);
+            int[] Brojac = IzracunajPonavljanja(Imena);
+            string SpojeniString = PretvoriBrojeveUZnakove(Brojac);
 
+            Console.WriteLine(SpojeniString);
+        }
 
-            Console.Write("Unesi ime prve osobe: ");
-            prvaOsoba = Console.ReadLine();
-
-            Console.Write("Unesi ime druge osobe: ");
-            drugaOsoba = Console.ReadLine();
-
-            char[] imena = new char[prvaOsoba.Length + drugaOsoba.Length];
-
-            for(int i = 0; i < prvaOsoba.Length; i++)
+        public static string UcitajString(string Poruka)
+        {
+            string S;
+            for (; ; )
             {
-                imena[i] = prvaOsoba[i];
-            }
-
-            for(int i = 0; i < drugaOsoba.Length; i++)
-            {
-                imena[prvaOsoba.Length + i] = drugaOsoba[i];
-            }
-
-            int[] brojac = new int[imena.Length];
-
-            for(int i = 0; i < imena.Length; i++)
-            {
-                int lokalniBrojac = 0;
-                for (int j = 0; j < imena.Length; j++)
+                Console.Write(Poruka + ": ");
+                S = Console.ReadLine().Trim();
+                if (S.Length > 0)
                 {
-                    if (imena[j] == imena[i])
+                    return S;
+                }
+                Console.WriteLine("Obavezan unos!");
+            }
+        }
+
+        public static char[] SpojiZnakove(string PrvaOsoba, string DrugaOsoba)
+        {
+            char[] Imena = new char[PrvaOsoba.Length + DrugaOsoba.Length];
+
+            for (int i = 0; i < PrvaOsoba.Length; i++)
+            {
+                Imena[i] = PrvaOsoba[i];
+            }
+
+            for (int i = 0; i < DrugaOsoba.Length; i++)
+            {
+                Imena[PrvaOsoba.Length + i] = DrugaOsoba[i];
+            }
+
+            return Imena;
+        }
+
+        public static int[] IzracunajPonavljanja(char[] Imena)
+        {
+            int[] Brojac = new int[Imena.Length];
+
+            for (int i = 0; i < Imena.Length; i++)
+            {
+                int LokalniBrojac = 0;
+                for (int j = 0; j < Imena.Length; j++)
+                {
+                    if (Imena[j] == Imena[i])
                     {
-                        lokalniBrojac++;
+                        LokalniBrojac++;
                     }
                 }
-                brojac[i] = lokalniBrojac;
+                Brojac[i] = LokalniBrojac;
             }
 
-            string spojeniString = "";
+            return Brojac;
+        }
 
-            for (int i = 0; i < brojac.Length; i++)
+        public static string PretvoriBrojeveUZnakove(int[] Brojac)
+        {
+            string Rezultat = "";
+
+            for (int i = 0; i < Brojac.Length; i++)
             {
-                spojeniString = spojeniString + brojac[i].ToString();
+                Rezultat += Brojac[i].ToString();
             }
 
-            Console.WriteLine(spojeniString);
-
+            return Rezultat;
         }
     }
 }
