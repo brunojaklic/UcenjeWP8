@@ -4,14 +4,17 @@
     {
         public static void Izvedi()
         {
-            string PrvaOsoba = UcitajString("Unesi ime prve osobe");
-            string DrugaOsoba = UcitajString("Unesi ime druge osobe");
+            string PrvaOsobaOriginal = UcitajString("Unesi ime prve osobe");
+            string DrugaOsobaOriginal = UcitajString("Unesi ime druge osobe");
+
+            string PrvaOsoba = PrvaOsobaOriginal.ToLower();
+            string DrugaOsoba = DrugaOsobaOriginal.ToLower();
 
             char[] Imena = SpojiZnakove(PrvaOsoba, DrugaOsoba);
             int[] Brojac = IzracunajPonavljanja(Imena);
             char[] SpojeniChar = PretvoriBrojeveUZnakove(Brojac);
 
-            Console.WriteLine("{0}\t{1}", PrvaOsoba, DrugaOsoba);
+            Console.WriteLine("{0}\t{1}", PrvaOsobaOriginal, DrugaOsobaOriginal);
 
             for (int i = 0; i < (PrvaOsoba.Length + DrugaOsoba.Length); i++)
             {
@@ -122,7 +125,7 @@
             }
 
             char[] KonacniNiz = new char[index];
-            
+
             for (int k = 0; k < index; k++)
             {
                 KonacniNiz[k] = NoviNiz[k];
