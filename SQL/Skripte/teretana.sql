@@ -31,122 +31,75 @@ create table vjezbaci(
 	ime varchar(50) not null,
 	prezime varchar(50) not null,
 	email varchar(50),
-	kategorija int not null references kategorije(sifra)
+	kategorija int not null references kategorije(sifra),
 );
 
 create table clanovi(
 	grupa int not null references grupe(sifra),
-	vjezbac int not null references vjezbaci(sifra),
+	vjezbac int null references vjezbaci(sifra),
 );
 
--- Unos podataka u tablicu programi
-INSERT INTO programi (naziv, cijena, aktivan) VALUES
-('Total Body Workout', 300.00, 1),
-('Yoga & Pilates', 250.00, 1),
-('CrossFit Intenzivni', 400.00, 1),
-('Kardio Fit', 200.00, 0), -- Neaktivan program
-('Snaga & Izdržljivost', 350.00, 1),
-('Funkcionalni Trening', 320.00, 1),
-('Jutarnje Istezanje', 150.00, 1);
+insert into programi (naziv, cijena, aktivan) values
+('Kardio HIIT', 35.00, 1),
+('Snaga i Izdržljivost', 45.00, 1),
+('Joga Flow', 30.00, 1),
+('CrossFit Osnove', 50.00, 1),
+('Funkcionalni Trening', 40.00, 0);
 
--- Unos podataka u tablicu kategorije (reducirano)
-INSERT INTO kategorije (naziv, cijena) VALUES
-('Student', 200.00),    -- Sifra će biti 1
-('Standard', 300.00),   -- Sifra će biti 2
-('Senior', 180.00);     -- Sifra će biti 3
+insert into kategorije (naziv, cijena) values
+('Početnik', 10.00),
+('Rekreativac', 15.00),
+('Napredni', 20.00);
 
--- Unos podataka u tablicu grupe
--- Pretpostavljamo da programi s ID-jevima 1, 2, 3, 5, 6, 7 postoje
-INSERT INTO grupe (naziv, program, trener) VALUES
-('Jutarnji Total Body Alpha', 1, 'Marko Marković'),      -- Sifra 1
-('Večernja Yoga Flow', 2, 'Ana Anić'),                 -- Sifra 2
-('CrossFit Elita', 3, 'Ivan Ivić'),                    -- Sifra 3
-('Pilates Core', 2, 'Jelena Jelić'),                   -- Sifra 4
-('Snaga Udar Popodne', 5, 'Petar Perić'),              -- Sifra 5
-('Funkcionalni Ratnici', 6, 'Martina Horvat'),         -- Sifra 6
-('Blago Istezanje Zora', 7, 'Stjepan Kovač');          -- Sifra 7
+insert into grupe (naziv, program, trener) values
+('Jutarnji HIIT', 1, 'Ana Anic'),
+('Večernja Snaga', 2, 'Marko Markovic'),
+('Joga za Početnike', 3, 'Petra Petrovic'),
+('CrossFit Uvod', 4, 'Ivan Ivic'),
+('Funkcionalni Master', 5, 'Jelena Jelic'),
+('Kardio Maratonci', 1, 'Ana Anic');
 
--- Unos podataka u tablicu vjezbaci (puno vježbača)
--- Kategorije: 1 (Student), 2 (Standard), 3 (Senior)
-INSERT INTO vjezbaci (ime, prezime, email, kategorija) VALUES
-('Pero', 'Perić', 'pero.peric@email.com', 2),           -- Sifra 1
-('Maja', 'Majić', 'maja.majic@email.com', 1),           -- Sifra 2
-('Ivan', 'Horvat', 'ivan.horvat@email.com', 2),         -- Sifra 3
-('Ana', 'Kovač', 'ana.kovac@email.com', 3),             -- Sifra 4
-('Luka', 'Babić', 'luka.babic@email.com', 2),           -- Sifra 5
-('Tea', 'Matić', 'tea.matic@email.com', 1),             -- Sifra 6 (neće biti član)
-('Nikola', 'Novak', 'nikola.novak@email.com', 2),       -- Sifra 7
-('Sara', 'Kralj', 'sara.kralj@email.com', 2),           -- Sifra 8 (neće biti član)
-('Marko', 'Knez', 'marko.knez@email.com', 1),           -- Sifra 9
-('Iva', 'Jurić', 'iva.juric@email.com', 3),             -- Sifra 10
-('Tomislav', 'Šimić', 'tomislav.simic@email.com', 2),   -- Sifra 11
-('Petra', 'Vuković', 'petra.vukovic@email.com', 1),     -- Sifra 12 (neće biti član)
-('Filip', 'Radić', 'filip.radic@email.com', 2),         -- Sifra 13
-('Lucija', 'Zorić', 'lucija.zoric@email.com', 2),       -- Sifra 14
-('Bruno', 'Grgić', 'bruno.grgic@email.com', 3),         -- Sifra 15 (neće biti član)
-('Ema', 'Popović', 'ema.popovic@email.com', 1),         -- Sifra 16
-('Domagoj', 'Klarić', 'domagoj.klaric@email.com', 2),   -- Sifra 17
-('Elena', 'Tomić', 'elena.tomic@email.com', 1),         -- Sifra 18 (neće biti član)
-('Josip', 'Pavlović', 'josip.pavlovic@email.com', 3),   -- Sifra 19
-('Nika', 'Blažević', 'nika.blazevic@email.com', 2),     -- Sifra 20
-('David', 'Rukavina', 'david.rukavina@email.com', 1),   -- Sifra 21
-('Lorena', 'Kovačić', 'lorena.kovacic@email.com', 2),   -- Sifra 22 (neće biti član)
-('Mihael', 'Lončar', 'mihael.loncar@email.com', 3),     -- Sifra 23
-('Klara', 'Božić', 'klara.bozic@email.com', 1),         -- Sifra 24
-('Patrik', 'Marić', 'patrik.maric@email.com', 2),       -- Sifra 25 (neće biti član)
-('Gabrijela', 'Jukić', 'gabrijela.jukic@email.com', 2), -- Sifra 26
-('Antonio', 'Brkić', 'antonio.brkic@email.com', 1),    -- Sifra 27
-('Monika', 'Franić', 'monika.franic@email.com', 3),     -- Sifra 28 (neće biti član)
-('Renato', 'Galić', 'renato.galic@email.com', 2),       -- Sifra 29
-('Valentina', 'Cindrić', 'valentina.cindric@email.com', 1); -- Sifra 30
+insert into vjezbaci (ime, prezime, email, kategorija) values
+('Matej', 'Horvat', 'matej.horvat@example.com', 1),
+('Lucija', 'Novak', 'lucija.novak@example.com', 2),
+('Filip', 'Kovacic', 'filip.kovacic@example.com', 3),
+('Sara', 'Babic', 'sara.babic@example.com', 1),
+('Dora', 'Knezovic', 'dora.knezovic@example.com', 2),
+('Luka', 'Peric', 'luka.peric@example.com', 3),
+('Ana', 'Juric', 'ana.juric@example.com', 1),
+('Ivan', 'Loncar', 'ivan.loncar@example.com', 2),
+('Mia', 'Maric', 'mia.maric@example.com', 3),
+('Nikola', 'Tomic', 'nikola.tomic@example.com', 1),
+('Ema', 'Vukovic', 'ema.vukovic@example.com', 2),
+('Ante', 'Matic', 'ante.matic@example.com', 3),
+('Petra', 'Markovic', 'petra.markovic@example.com', 1),
+('Josip', 'Klaric', 'josip.klaric@example.com', 2),
+('Tea', 'Bosnic', 'tea.bosnic@example.com', 3),
+('Marin', 'Kraljic', 'marin.kraljic@example.com', 1),
+('Lena', 'Sostar', 'lena.sostar@example.com', 2),
+('David', 'Bilic', 'david.bilic@example.com', 3),
+('Frano', 'Mandic', 'frano.mandic@example.com', 1),
+('Rita', 'Lukic', 'rita.lukic@example.com', 2),
+('Dario', 'Basic', 'dario.basic@example.com', 3),
+('Marta', 'Grgic', 'marta.grgic@example.com', 1),
+('Toni', 'Jovanovic', 'toni.jovanovic@example.com', 2),
+('Elena', 'Popovic', 'elena.popovic@example.com', 3),
+('Borana', 'Simic', 'borana.simic@example.com', 1),
+('Karlo', 'Petrovic', 'karlo.petrovic@example.com', 2),
+('Viktorija', 'Zelic', 'viktorija.zelic@example.com', 3),
+('Stjepan', 'Horvatovic', 'stjepan.horvatovic@example.com', 1),
+('Anamarija', 'Kovacevic', 'anamarija.kovacevic@example.com', 2),
+('Bruno', 'Novkovic', 'bruno.novkovic@example.com', 3);
 
--- Unos podataka u tablicu clanovi
--- Povezujemo vježbače s grupama
--- Grupe imaju Sifra od 1 do 7
--- Vježbači imaju Sifra od 1 do 30
-INSERT INTO clanovi (grupa, vjezbac) VALUES
-(1, 1),  -- Pero Perić u Jutarnji Total Body Alpha
-(2, 2),  -- Maja Majić u Večernja Yoga Flow
-(3, 3),  -- Ivan Horvat u CrossFit Elita
-(1, 4),  -- Ana Kovač u Jutarnji Total Body Alpha
-(4, 5),  -- Luka Babić u Pilates Core
-(5, 7),  -- Nikola Novak u Snaga Udar Popodne
-(2, 9),  -- Marko Knez u Večernja Yoga Flow
-(6, 10), -- Iva Jurić u Funkcionalni Ratnici
-(3, 11), -- Tomislav Šimić u CrossFit Elita
-(7, 13), -- Filip Radić u Blago Istezanje Zora
-(4, 14), -- Lucija Zorić u Pilates Core
-(1, 16), -- Ema Popović u Jutarnji Total Body Alpha
-(5, 17), -- Domagoj Klarić u Snaga Udar Popodne
-(6, 19), -- Josip Pavlović u Funkcionalni Ratnici
-(7, 20), -- Nika Blažević u Blago Istezanje Zora
-(2, 21), -- David Rukavina u Večernja Yoga Flow
-(3, 23), -- Mihael Lončar u CrossFit Elita
-(4, 24), -- Klara Božić u Pilates Core
-(1, 26), -- Gabrijela Jukić u Jutarnji Total Body Alpha
-(5, 27), -- Antonio Brkić u Snaga Udar Popodne
-(6, 29), -- Renato Galić u Funkcionalni Ratnici
-(7, 30); -- Valentina Cindrić u Blago Istezanje Zora
+insert into vjezbaci (ime, prezime, email, kategorija) values
+('Nikolina', 'Zoric', 'nikolina.zoric@example.com', 1),
+('Damir', 'Horvatic', 'damir.horvatic@example.com', 2),
+('Valentina', 'Perkovic', 'valentina.perkovic@example.com', 3);
 
--- Vježbači koji NISU članovi NIJEDNE grupe (po njihovim Sifra nakon unosa):
--- 6 (Tea Matić)
--- 8 (Sara Kralj)
--- 12 (Petra Vuković)
--- 15 (Bruno Grgić)
--- 18 (Elena Tomić)
--- 22 (Lorena Kovačić)
--- 25 (Patrik Marić)
--- 28 (Monika Franić)
-
-
- --ispisati prihod po trenerima
-
-select b.trener, count(c.vjezbac) as broj_clanova, count(c.vjezbac) * a.cijena as prihod
-from programi a left join grupe b 
-on a.sifra = b.program
-left join clanovi c 
-on b.sifra = c.grupa
-group by b.trener, a.cijena;
-
---izvuci vjezbace koji nisu clanovi ni jedne grupe
-
+insert into clanovi (grupa, vjezbac) values
+(1, 1), (1, 4), (1, 7), (1, 10), (1, 13),
+(2, 2), (2, 5), (2, 8), (2, 11), (2, 14),
+(3, 3), (3, 6), (3, 9), (3, 12), (3, 15),
+(4, 16), (4, 19), (4, 22), (4, 25), (4, 28),
+(5, 17), (5, 20), (5, 23), (5, 26), (5, 29),
+(6, 18), (6, 21), (6, 24), (6, 27), (6, 30);
