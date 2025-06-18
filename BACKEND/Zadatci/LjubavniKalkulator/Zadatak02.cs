@@ -11,12 +11,8 @@
             int[] Brojac = IzracunajPonavljanja(Imena);
             char[] SpojeniChar = PretvoriBrojeveUZnakove(Brojac);
 
-            string PrazanString = "";
-
-            char[] FinalniChar = LjubavniKalkulator(SpojeniChar);
-
-
             Console.WriteLine("{0}\t{1}", PrvaOsoba, DrugaOsoba);
+
             for (int i = 0; i < (PrvaOsoba.Length + DrugaOsoba.Length); i++)
             {
                 if (i == (PrvaOsoba.Length))
@@ -24,10 +20,10 @@
                     Console.Write("\t");
                 }
                 Console.Write("{0}", SpojeniChar[i]);
-
             }
-            Console.WriteLine((int)FinalniChar[0]);
+            Console.WriteLine();
 
+            char[] FinalniChar = LjubavniKalkulator(SpojeniChar);
 
         }
 
@@ -85,35 +81,59 @@
 
         public static char[] PretvoriBrojeveUZnakove(int[] brojevi)
         {
-            string spojeni = string.Join("", brojevi);
-            return spojeni.ToCharArray();
+            string Spojeni = string.Join("", brojevi);
+            return Spojeni.ToCharArray();
         }
-
-
 
         public static char[] LjubavniKalkulator(char[] SpojeniChar)
         {
-
-            int Brojac = 0;
-
-            if (SpojeniChar[0] <= 100)
+            if (SpojeniChar.Length <= 2)
             {
                 return SpojeniChar;
             }
 
-            for(int i = 0; i < SpojeniChar.Length; i++)
+            char[] NoviNiz = new char[SpojeniChar.Length * 2];
+            int index = 0;
+
+            int i = 0;
+            int j = SpojeniChar.Length - 1;
+
+            while (i < j)
             {
-                SpojeniChar[i] = (char)(SpojeniChar[0 + i] + SpojeniChar[SpojeniChar.Length - 1 - i]);
-                Brojac++;
+                int Zbroj = (SpojeniChar[i] - '0') + (SpojeniChar[j] - '0');
+
+                if (Zbroj >= 10)
+                {
+                    NoviNiz[index++] = (char)((Zbroj / 10) + '0');
+                    NoviNiz[index++] = (char)((Zbroj % 10) + '0');
+                }
+                else
+                {
+                    NoviNiz[index++] = (char)(Zbroj + '0');
+                }
+
+                i++;
+                j--;
             }
 
-            for(int i = Brojac; i < SpojeniChar.Length; i++)
+            if (i == j)
             {
-                SpojeniChar[i] = '0';
+                NoviNiz[index++] = SpojeniChar[i];
             }
 
-            return LjubavniKalkulator(SpojeniChar);
+            char[] KonacniNiz = new char[index];
+            
+            for (int k = 0; k < index; k++)
+            {
+                KonacniNiz[k] = NoviNiz[k];
+            }
+
+            for (int k = 0; k < KonacniNiz.Length; k++)
+            {
+                Console.Write(KonacniNiz[k]);
+            }
+            Console.WriteLine();
+            return LjubavniKalkulator(KonacniNiz);
         }
-
     }
 }
