@@ -13,67 +13,84 @@ namespace CiklicnaTablica
         {
 
 
-            int m, n;
-
-            Console.Write("Unesite broj redova: ");
-            do
-            {
-                m = int.Parse(Console.ReadLine());
-            } while (m <= 0);
             
 
-            Console.Write("Unesite broj stupaca: ");
-            do
-            {
-                n = int.Parse(Console.ReadLine());
+            int m = UcitajCijeliBroj("Unesite broj redova");
+            int n = UcitajCijeliBroj("Unesite broj stupaca");
 
-            } while (n <= 0);
             
 
-            int[,] matrica = new int[m, n];
 
-            int broj = 1;
+            int[,] Matrica = new int[m, n];
+
+            CiklicnaTablica(Matrica, m, n);
+
+            IspisMatrice(Matrica, m, n);
+
+
+        }
+
+        public static int UcitajCijeliBroj(string poruka)
+        {
+            while (true)
+            {
+                Console.Write(poruka + ": ");
+                try
+                {
+                    return int.Parse(Console.ReadLine());
+                }
+                catch
+                {
+                    Console.WriteLine("Pokusajte ponovo");
+                }
+            }
+        }
+
+        public static void CiklicnaTablica(int[,] Matrica, int BrojRedova, int BrojStupaca)
+        {
+
+            int Broj = 1;
             int x = 0;
 
 
-            while (broj <= m * n)
+            while (Broj <= BrojRedova * BrojStupaca)
             {
-                for (int j = n - 1 - x; j >= x; j--)
+                for (int j = BrojStupaca - 1 - x; j >= x; j--)
                 {
-                    matrica[m - 1 - x, j] = broj++;
+                    Matrica[BrojRedova - 1 - x, j] = Broj++;
                 }
 
-                if(broj > m * n)
-                {
-                    break;
-                }
-
-                for (int i = m - 2 - x; i >= x; i--)
-                {
-                    matrica[i, x] = broj++;
-                }
-
-                if (broj > m * n)
+                if (Broj > BrojRedova * BrojStupaca)
                 {
                     break;
                 }
 
-                for (int j = 1 + x; j <= (n - 1 - x); j++)
+                for (int i = BrojRedova - 2 - x; i >= x; i--)
                 {
-                    matrica[x, j] = broj++;
+                    Matrica[i, x] = Broj++;
                 }
 
-                if (broj > m * n)
+                if (Broj > BrojRedova * BrojStupaca)
                 {
                     break;
                 }
 
-                for (int i = 1 + x; i <= (m - 2 - x); i++)
+                for (int j = 1 + x; j <= (BrojStupaca - 1 - x); j++)
                 {
-                    matrica[i, n - 1 - x] = broj++;
+                    Matrica[x, j] = Broj++;
                 }
 
-                if (broj > m * n)
+                if (Broj > BrojRedova * BrojStupaca)
+                {
+                    break;
+                }
+
+                for (int i = 1 + x; i <= (BrojRedova - 2 - x); i++)
+                {
+                    Matrica[i, BrojStupaca - 1 - x] = Broj++;
+                }
+
+                if (Broj > BrojRedova * BrojStupaca)
                 {
                     break;
                 }
@@ -81,16 +98,20 @@ namespace CiklicnaTablica
                 x++;
             }
 
-            for (int i = 0; i < m; i++)
+
+        }
+
+        public static void IspisMatrice(int[,] Matrica, int BrojRedova, int BrojStupaca)
+        {
+
+            for (int i = 0; i < BrojRedova; i++)
             {
-                for (int j = 0; j < n; j++)
+                for (int j = 0; j < BrojStupaca; j++)
                 {
-                    Console.Write("\t{0}", matrica[i, j]);
+                    Console.Write("\t{0}", Matrica[i, j]);
                 }
                 Console.Write("\n");
             }
-
-
 
         }
     }
