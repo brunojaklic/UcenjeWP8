@@ -12,7 +12,7 @@ namespace Zavrsni
 
         public int Sifra { get; set; }
         public string Naziv { get; set; } = "";
-        public double Cijena { get; set; }
+        public decimal Cijena { get; set; }
         public bool Aktivan { get; set; }
 
 

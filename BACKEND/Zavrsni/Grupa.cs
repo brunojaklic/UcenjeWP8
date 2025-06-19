@@ -12,7 +12,7 @@ namespace Zavrsni
 
         public int Sifra { get; set; }
         public string Naziv { get; set; } = "";
-        public Program[] Programi { get; set; } = new Program[]();
+        public Program Programi { get; set; } = new Program();
         public string Trener { get; set; } = "";
 
 
