@@ -5,8 +5,8 @@ namespace Zadatci
     {
 
         public int sifra { get; set; }
-        public string naziv { get; set; }
-        public string autor { get; set; }
+        public string naziv { get; set; } = "";
+        public string autor { get; set; } = "";
         public int godinaIzdanja { get; set; }
         public bool JeLiNaStanju { get; set; }
 
