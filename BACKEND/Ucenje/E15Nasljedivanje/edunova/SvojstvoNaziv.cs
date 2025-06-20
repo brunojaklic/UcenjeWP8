@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace Ucenje.E15Nasljedivanje.edunova
 {
-    internal class SvojstvoNaziv
+    public class SvojstvoNaziv : Entitet
     {
+
+        public string Naziv { get; set; } = "";
+
+
+
     }
 }

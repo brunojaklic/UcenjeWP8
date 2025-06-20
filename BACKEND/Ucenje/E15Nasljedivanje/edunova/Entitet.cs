@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace Ucenje.E15Nasljedivanje.edunova
 {
-    internal class Entitet
+    public abstract class Entitet
     {
+
+        public int Sifra { get; set; }
+
+
+
     }
 }

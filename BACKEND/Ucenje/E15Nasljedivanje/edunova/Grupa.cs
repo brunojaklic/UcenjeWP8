@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace Ucenje.E15Nasljedivanje.edunova
 {
-    public class Grupa : Entitet
+    public class Grupa : SvojstvoNaziv
     {
 
 
-        public string Naziv { get; set; } = "";
         public Smjer Smjer { get; set; } = new Smjer();
         public string? Predavac { get; set; }
         public Polaznik[]? Polaznici { get; set; }
