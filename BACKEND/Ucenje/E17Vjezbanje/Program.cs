@@ -10,13 +10,9 @@ namespace Ucenje.E17Vjezbanje
     public class Program
     {
 
-        public Zadatak1 Zad1 { get; set; }
-
         public Program()
         {
-            Zad1 = new Zadatak1();
             Izbornik();
-
         }
 
         private void Izbornik()
@@ -25,6 +21,8 @@ namespace Ucenje.E17Vjezbanje
             Console.WriteLine("******** Izbornik *******");
             Console.WriteLine("0. Izlaz");
             Console.WriteLine("1. Zbrajanje dvaju brojeva");
+            Console.WriteLine("2. Racunanje povrsine");
+            Console.WriteLine("3. Provjera je li broj pozitivan ili negativan");
             Console.WriteLine("*************************");
             Console.WriteLine("*************************");
             OcitajOdabir();
@@ -39,8 +37,14 @@ namespace Ucenje.E17Vjezbanje
                     Console.WriteLine("Dovidenja!");
                     break;
                 case 1:
-                    Zad1.Izvedi();
+                    Zadatak1.Izvedi();
                     //Console.WriteLine("1. zadatak");
+                    break;
+                case 2:
+                    Zadatak2.Izvedi();
+                    break;
+                case 3:
+                    Zadatak3.Izvedi();
                     break;
                 default:
                     Console.WriteLine("Ne postoji taj program");

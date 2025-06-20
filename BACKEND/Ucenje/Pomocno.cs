@@ -65,5 +65,21 @@
                 }
             }
         }
+
+        public static decimal UcitajDecimalniBroj(string poruka)
+        {
+            while (true)
+            {
+                Console.Write(poruka + ": ");
+                try
+                {
+                    return decimal.Parse(Console.ReadLine());
+                }
+                catch
+                {
+                    Console.WriteLine("Pokušajte ponovo");
+                }
+            }
+        }
     }
 }
