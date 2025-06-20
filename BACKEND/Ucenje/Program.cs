@@ -3,10 +3,12 @@
 
 using Ucenje;
 
+new Ucenje.E15Nasljedivanje.Program();
+
 // ključna riječ new poziva konstruktor klase
 //new Ucenje.E14KlasaObjekt.Program();
 
-Ucenje.E14KlasaObjekt.Program.AutomobilZadatak();
+//Ucenje.E14KlasaObjekt.Program.AutomobilZadatak();
 
 //E01UlazIzlaz.Izvedi();
 //E02Varijable.Izvedi();
