@@ -5,7 +5,9 @@ using Ucenje;
 
 //new Ucenje.E15Nasljedivanje.Program();
 
-new Ucenje.E16Polimorfizam.Program();
+//new Ucenje.E16Polimorfizam.Program();
+
+new Ucenje.E17Vjezbanje.Program();
 
 // ključna riječ new poziva konstruktor klase
 //new Ucenje.E14KlasaObjekt.Program();
