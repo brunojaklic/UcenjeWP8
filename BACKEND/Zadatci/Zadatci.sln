@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CiklicnaTablica", "Ciklicna
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LjubavniKalkulator", "LjubavniKalkulator\LjubavniKalkulator.csproj", "{A08EEDAC-1A96-459A-BBEF-0C7D4069267A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeneratorLozinki", "GeneratorLozinki\GeneratorLozinki.csproj", "{0A61B880-6392-4EE8-B582-15636E626B7F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{A08EEDAC-1A96-459A-BBEF-0C7D4069267A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A08EEDAC-1A96-459A-BBEF-0C7D4069267A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A08EEDAC-1A96-459A-BBEF-0C7D4069267A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A61B880-6392-4EE8-B582-15636E626B7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A61B880-6392-4EE8-B582-15636E626B7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A61B880-6392-4EE8-B582-15636E626B7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A61B880-6392-4EE8-B582-15636E626B7F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
