@@ -1,4 +1,5 @@
-﻿namespace LjubavniKalkulator
+﻿
+namespace LjubavniKalkulator
 {
     internal class Zadatak02
     {
@@ -14,8 +15,15 @@
             int[] Brojac = IzracunajPonavljanja(Imena);
             char[] SpojeniChar = PretvoriBrojeveUZnakove(Brojac);
 
-            Console.WriteLine("{0}\t{1}", PrvaOsobaOriginal, DrugaOsobaOriginal);
+            char[] FinalniChar = LjubavniKalkulator(SpojeniChar);
 
+            IspisKalkulatora(PrvaOsoba, DrugaOsoba, SpojeniChar, PrvaOsobaOriginal, DrugaOsobaOriginal, FinalniChar);
+
+        }
+
+        private static void IspisKalkulatora(string PrvaOsoba, string DrugaOsoba, char[] SpojeniChar, string PrvaOsobaOriginal, string DrugaOsobaOriginal, char[] FinalniChar)
+        {
+            Console.WriteLine("{0}\t{1}", PrvaOsobaOriginal, DrugaOsobaOriginal);
             for (int i = 0; i < (PrvaOsoba.Length + DrugaOsoba.Length); i++)
             {
                 if (i == (PrvaOsoba.Length))
@@ -25,9 +33,10 @@
                 Console.Write("{0}", SpojeniChar[i]);
             }
             Console.WriteLine();
-
-            char[] FinalniChar = LjubavniKalkulator(SpojeniChar);
-
+            for (int i = 0; i < FinalniChar.Length; i++)
+            {
+                Console.Write(FinalniChar[i]);
+            }
         }
 
         public static string UcitajString(string Poruka)
@@ -131,11 +140,6 @@
                 KonacniNiz[k] = NoviNiz[k];
             }
 
-            for (int k = 0; k < KonacniNiz.Length; k++)
-            {
-                Console.Write(KonacniNiz[k]);
-            }
-            Console.WriteLine();
             return LjubavniKalkulator(KonacniNiz);
         }
     }
