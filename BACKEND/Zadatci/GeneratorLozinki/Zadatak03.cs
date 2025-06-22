@@ -47,20 +47,61 @@ namespace GeneratorLozinki
 
             for (int i = 0; i < brojLozinki; i++)
             {
-                StringBuilder lozinka = GenerirajLozinku(
-                    duzina,
-                    ukljuciVelikaSlova,
-                    ukljuciMalaSlova,
-                    ukljuciBrojeve,
-                    ukljuciInterpunkciju,
-                    pocinjeBrojem,
-                    pocinjeInterpunkcijom,
-                    zavrsavaBrojem,
-                    zavrsavaInterpunkcijom,
-                    ponavljajuciZnakovi
-                );
+                StringBuilder lozinka = null;
+                while (lozinka == null)
+                {
+                    lozinka = GenerirajLozinku(
+                        duzina,
+                        ukljuciVelikaSlova,
+                        ukljuciMalaSlova,
+                        ukljuciBrojeve,
+                        ukljuciInterpunkciju,
+                        pocinjeBrojem,
+                        pocinjeInterpunkcijom,
+                        zavrsavaBrojem,
+                        zavrsavaInterpunkcijom,
+                        ponavljajuciZnakovi
+                    );
 
-                Console.WriteLine($"Lozinka {i + 1}: {lozinka}");
+                    if (lozinka == null)
+                    {
+                        Console.WriteLine("Molimo unesite parametre ponovno.\n");
+                        duzina = DuzinaLozinke();
+
+                        ukljuciVelikaSlova = UcitajBool("Zelite li da lozinka sadrzi velika slova?");
+                        ukljuciMalaSlova = UcitajBool("Zelite li da lozinka sadrzi mala slova?");
+                        ukljuciBrojeve = UcitajBool("Zelite li da lozinka sadrzi brojeve?");
+                        ukljuciInterpunkciju = UcitajBool("Zelite li da lozinka sadrzi interpunkcijske znakove?");
+
+                        pocinjeBrojem = false;
+                        pocinjeInterpunkcijom = false;
+
+                        if (UcitajBool("Zelite li da lozinka pocinje posebnim znakom (broj ili interpunkcija)?"))
+                        {
+                            pocinjeBrojem = UcitajBool("Zelite li da lozinka pocinje brojem?");
+                            if (!pocinjeBrojem)
+                            {
+                                pocinjeInterpunkcijom = UcitajBool("Zelite li da lozinka pocinje interpunkcijskim znakom?");
+                            }
+                        }
+
+                        zavrsavaBrojem = false;
+                        zavrsavaInterpunkcijom = false;
+
+                        if (UcitajBool("Zelite li da lozinka zavrsava posebnim znakom (broj ili interpunkcija)?"))
+                        {
+                            zavrsavaBrojem = UcitajBool("Zelite li da lozinka zavrsava brojem?");
+                            if (!zavrsavaBrojem)
+                            {
+                                zavrsavaInterpunkcijom = UcitajBool("Zelite li da lozinka zavrsava interpunkcijskim znakom?");
+                            }
+                        }
+
+                        ponavljajuciZnakovi = UcitajBool("Zelite li da lozinka ima ponavljajuce znakove?");
+                    }
+                }
+
+                Console.WriteLine("Lozinka " + (i + 1) + ": " + lozinka);
             }
 
         }
@@ -142,8 +183,10 @@ namespace GeneratorLozinki
 
             if (dozvoljeniZnakovi.Length == 0)
             {
-                throw new ArgumentException("Morate odabrati barem jedan skup znakova za lozinku");
+                Console.WriteLine("Morate odabrati barem jedan skup znakova za lozinku.");
+                return null;
             }
+
 
             char[] lozinka = new char[DuzinaLozinke];
             var random = new Random();
@@ -192,7 +235,9 @@ namespace GeneratorLozinki
                 }
             }
 
-            throw new Exception("Nije moguce generirati lozinku sa zadanim uvjetima");
+            Console.WriteLine("Nije moguce generirati lozinku sa zadanim uvjetima.");
+            return null;
+
         }
 
 
