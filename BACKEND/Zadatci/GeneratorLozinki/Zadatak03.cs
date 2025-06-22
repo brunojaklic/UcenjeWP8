@@ -16,13 +16,27 @@ namespace GeneratorLozinki
             bool malaSlova = UcitajBool("Zelite li da lozinka sadrzi mala slova?");
             bool brojevi = UcitajBool("Zelite li da lozinka sadrzi brojeve?");
             bool interpunkcija = UcitajBool("Zelite li da lozinka sadrzi interpunkcijske znakove?");
-            bool pocinjeBrojem = UcitajBool("Zelite li da lozinka pocinje s brojem?");
-            bool pocinjeInterpunkcijskimZnakom = UcitajBool("Zelite li da lozinka pocinje s interpunkcijskim znakom?");
-            bool zavrsavaBrojem = UcitajBool("Zelite li da lozinka zavrsava s brojem?");
-            bool zavrsavaInterpunkcijskimZnakom = UcitajBool("Zelite li da lozinka zavrsava s interpunkcijskim znakom?");
+            bool pocinje = UcitajBool("Zelite li da lozinka pocinje s brojem?");
+            
+            if (pocinje == false)
+            {
+                pocinje = UcitajBool("Zelite li da lozinka pocinje s interpunkcijskim znakom?");
+            }
+            
+            bool zavrsava = UcitajBool("Zelite li da lozinka zavrsava s brojem?");
+            
+            if (zavrsava == false)
+            {
+                zavrsava = UcitajBool("Zelite li da lozinka zavrsava s interpunkcijskim znakom?");
+            }
+            
             bool ponavljajuciZnakovi = UcitajBool("Zelite li da lozinka ima ponavljajuce znakove?");
             int brojLozinki = BrojLozinki();
 
+
+            StringBuilder lozinka = new StringBuilder();
+            lozinka = GenerirajLozinku(duzina, velikaSlova, malaSlova, brojevi, interpunkcija, pocinje, zavrsava, ponavljajuciZnakovi, brojLozinki);
+            Console.WriteLine(lozinka);
         }
 
 
@@ -58,6 +72,50 @@ namespace GeneratorLozinki
                 if (odgovor == "ne") return false;
                 Console.WriteLine("Nepravilan unos. Molimo odgovorite s 'da' ili 'ne'.");
             }
+        }
+
+        public static StringBuilder GenerirajLozinku(int DuzinaLozinke, bool velikaSlova, bool malaSlova, bool brojevi, bool interpunkcija, bool pocinje, bool zavrsava, bool ponavljajuciZnakovi, int brojLozinki)
+        {
+
+            StringBuilder nizVelikihSlova = new StringBuilder("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
+            StringBuilder nizMalihSlova = new StringBuilder("abcdefghijklmnopqrstuvwxyz");
+            StringBuilder nizBrojeva = new StringBuilder("0123456789");
+            StringBuilder nizInterpunkcijskihZnakova = new StringBuilder("!@#$%^&*()_-+=<>?");
+            StringBuilder dozvoljeniZnakovi = new StringBuilder();
+
+            if(velikaSlova)
+            {
+                dozvoljeniZnakovi.Append(nizVelikihSlova);
+            }
+
+            if (malaSlova)
+            {
+                dozvoljeniZnakovi.Append(nizMalihSlova);
+            }
+
+            if (brojevi)
+            {
+                dozvoljeniZnakovi.Append(nizBrojeva);
+            }
+
+            if (interpunkcija)
+            {
+                dozvoljeniZnakovi.Append(nizInterpunkcijskihZnakova);
+            }
+
+
+            var random = new Random();
+            char[] lozinka = new char[DuzinaLozinke];
+            
+            for(int i = 0; i < DuzinaLozinke; i++)
+            {
+                lozinka[i] = dozvoljeniZnakovi[random.Next(dozvoljeniZnakovi.Length)];
+            }
+
+            StringBuilder novaLozinka = new StringBuilder();
+            novaLozinka.Append(lozinka);
+            return novaLozinka;
+
         }
 
     }
