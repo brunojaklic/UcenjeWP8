@@ -1,5 +1,6 @@
 namespace WebAPI
 {
+    // POCO - PLAIN OLD C# OBJECT
     public class WeatherForecast
     {
         public DateOnly Date { get; set; }
