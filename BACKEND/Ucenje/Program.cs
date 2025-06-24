@@ -7,7 +7,9 @@ using Ucenje;
 
 //new Ucenje.E16Polimorfizam.Program();
 
-new Ucenje.E17Vjezbanje.Program();
+//new Ucenje.E17Vjezbanje.Program();
+
+new Ucenje.E18GSALE.Program();
 
 // ključna riječ new poziva konstruktor klase
 //new Ucenje.E14KlasaObjekt.Program();
