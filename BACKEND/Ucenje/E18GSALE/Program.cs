@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -74,13 +75,56 @@ namespace Ucenje.E18GSALE
 
             var lo = new Obrada<List<Smjer>>();
 
+            var smjerovi = new List<Smjer>();
+
+            smjerovi.Add(new Smjer() { Naziv = "Web programiranje" });
+            smjerovi.Add(new Smjer() { Naziv = "Računovodstvo" });
+
+            smjerovi.Sort(); // metoda sort zove metodu CompareTo
+
+            foreach(var s in smjerovi)
+            {
+                Console.WriteLine(s);
+            }
+            // 6. način iteracije: funkcionalno programiranje
+            smjerovi.ForEach(s => Console.WriteLine(s)); // => lambda izraz
 
 
+            Console.WriteLine(Zbroji(2,3));
 
+            // kreiranje "interne" metode s pomoću lambda izraza
 
+            var Zbroj = (int i, int j) => i + j;
 
+            Console.WriteLine(Zbroj(2,3));
 
+            var algoritam = (int x, int y) =>
+            {
+                var k = 2;
+                k += x;
+                y = --y + k;
+                return k + x + y;
+            };
 
+            Console.WriteLine(algoritam(1,2));
+
+            smjerovi.Sort((s1, s2) =>
+            {
+                return s1.Naziv.CompareTo(s2.Naziv);
+            });
+
+            smjerovi[0].Naziv.EdunovaProvjera();
+            o.PredmetObrade.EdunovaProvjera();
+
+            int r = smjerovi[0].Broj();
+            Console.WriteLine("{0}, {1}", r, eo.Broj());
+            
+
+        } // kraj konstruktora
+
+        private int Zbroji(int i, int j)
+        {
+            return i + j;
         }
 
 
