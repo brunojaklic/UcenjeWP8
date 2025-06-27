@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace Ucenje.E18GSALE
 {
-    public class Polaznik : Entitet
+    public class Polaznik: Entitet
     {
-
         public string Ime { get; set; } = "";
-
     }
 }
