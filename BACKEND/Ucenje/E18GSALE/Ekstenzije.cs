@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Runtime.CompilerServices;
 
 namespace Ucenje.E18GSALE
 {
-
-    // Ekstenzije su metode koje možemo nakačiti na bilo koji tip podatka za koji je ekstenzija napisana
+    // Ekstenzije su metode koje možemo nakačitina bilo koji tip podatka za koji je ekstenzija napisana
     public static class Ekstenzije
     {
 

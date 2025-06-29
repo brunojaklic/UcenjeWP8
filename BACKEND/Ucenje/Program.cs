@@ -9,7 +9,7 @@ using Ucenje;
 
 //new Ucenje.E17Vjezbanje.Program();
 
-new Ucenje.E18GSALE.Program();
+new Ucenje.E19KonzolnaAplikacija.Izbornik();
 
 // ključna riječ new poziva konstruktor klase
 //new Ucenje.E14KlasaObjekt.Program();

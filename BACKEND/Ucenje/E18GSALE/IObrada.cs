@@ -9,7 +9,6 @@ namespace Ucenje.E18GSALE
     public interface IObrada
     {
 
-
         public string Metoda();
         public void OdradiPosao();
 
