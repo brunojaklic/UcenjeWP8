@@ -14,7 +14,7 @@ namespace Ucenje.E16Polimorfizam
 
             Osoba[] osobe = new Osoba[5];
 
-            osobe[0] = new Polaznik() { Ime = "Pero", Telefon = "258" };
+            osobe[0] = new Polaznik() { Ime = "Pero", Prezime = "Perić", Telefon = "258" };
             osobe[1] = new Predavac() { Ime = "Karla", IBAN = "HR52565" };
             osobe[2] = new Predavac() { Ime = "Lota", IBAN = "HR232325" };
             osobe[3] = new Polaznik() { Ime = "Ivana", Telefon = "34756" };

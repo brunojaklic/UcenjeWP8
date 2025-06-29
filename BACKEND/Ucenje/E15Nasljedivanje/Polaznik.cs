@@ -19,16 +19,16 @@ namespace Ucenje.E15Nasljedivanje
             return base.ToString() + " " + Telefon;
         }
 
-        public override bool Equals(object? obj)
-        {
-            if (obj == null) return false;
+        //public override bool Equals(object? obj)
+        //{
+        //    if (obj == null) return false;
 
-            var p = (Polaznik)obj; // var p = obj as Polaznik
+        //    var p = (Polaznik)obj; // var p = obj as Polaznik
 
-            if (p.Ime.Equals(this.Ime) && p.Prezime.Equals(Prezime) && p.Telefon.Equals(Telefon)) return true;
+        //    if (p.Ime.Equals(this.Ime) && p.Prezime.Equals(Prezime) && p.Telefon.Equals(Telefon)) return true;
 
-            return false;
-        }
+        //    return false;
+        //}
 
 
     }

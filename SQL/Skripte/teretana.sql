@@ -31,12 +31,12 @@ create table vjezbaci(
 	ime varchar(50) not null,
 	prezime varchar(50) not null,
 	email varchar(50),
-	kategorija int not null references kategorije(sifra),
+	kategorija int not null references kategorije(sifra)
 );
 
 create table clanovi(
 	grupa int not null references grupe(sifra),
-	vjezbac int null references vjezbaci(sifra),
+	vjezbac int not null references vjezbaci(sifra)
 );
 
 insert into programi (naziv, cijena, aktivan) values
